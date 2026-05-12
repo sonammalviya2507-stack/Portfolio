@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SM.CORE // SONAM MALVIYA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#00e0ff",
+                    "surface-dim": "#111318",
+                    "tertiary-container": "#bbcbff",
+                    "on-surface": "#e2e2e8",
+                    "primary-fixed-dim": "#00daf8",
+                    "secondary": "#d8b9ff",
+                    "tertiary-fixed-dim": "#b3c5ff",
+                    "surface-tint": "#00daf8",
+                    "outline": "#859397",
+                    "tertiary-fixed": "#dae1ff",
+                    "on-secondary": "#450086",
+                    "on-tertiary-container": "#004dc5",
+                    "background": "#020408",
+                    "surface-container-lowest": "#0c0e12",
+                    "on-primary": "#00363f",
+                    "surface-variant": "#333539",
+                    "tertiary": "#e3e7ff",
+                    "surface-container-highest": "#333539",
+                    "on-primary-fixed": "#001f25",
+                    "on-tertiary-fixed": "#001849",
+                    "on-error": "#690005",
+                    "secondary-container": "#6e06d0",
+                    "inverse-surface": "#e2e2e8",
+                    "surface-container-high": "#282a2e",
+                    "on-primary-container": "#005f6d",
+                    "secondary-fixed-dim": "#d8b9ff",
+                    "surface-container-low": "#1a1c20",
+                    "inverse-on-surface": "#2f3035",
+                    "on-secondary-fixed-variant": "#6200bc",
+                    "surface": "#111318",
+                    "primary": "#baf2ff",
+                    "secondary-fixed": "#eddcff",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#d5b5ff",
+                    "on-secondary-fixed": "#290055",
+                    "primary-fixed": "#a5eeff",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#004e5a",
+                    "inverse-primary": "#006877",
+                    "surface-container": "#1e2024",
+                    "on-tertiary": "#002b75",
+                    "on-tertiary-fixed-variant": "#003fa4",
+                    "on-background": "#e2e2e8",
+                    "on-surface-variant": "#bac9cd",
+                    "error": "#ffb4ab",
+                    "outline-variant": "#3b494c",
+                    "surface-bright": "#37393e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "stack-sm": "12px",
+                    "margin-mobile": "16px",
+                    "stack-md": "24px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "code-sm": ["JetBrains Mono"],
+                    "display-xl": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "code-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #020408;
+            color: #e2e2e8;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(13, 17, 23, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 30px rgba(0, 224, 255, 0.2);
+        }
+        .neon-border-hover:hover {
+            border-color: #00e0ff;
+            box-shadow: 0 0 15px rgba(0, 224, 255, 0.3);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #00daf8;
+            z-index: 100;
+            box-shadow: 0 0 10px #00daf8;
+            width: 0%;
+        }
+        .radial-gradient-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 224, 255, 0.05) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<div class="scroll-progress"></div>
+<!-- Background Ambient Glows -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+<div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary-container/5 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary-container/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/60 backdrop-blur-xl border-b border-white/10 shadow-[0_0_30px_rgba(0,224,255,0.1)]">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-stack-sm">
+<span class="font-display-xl text-headline-lg font-bold tracking-tighter text-primary-fixed-dim">SM.CORE</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary font-bold border-b-2 border-primary-container pb-1 font-label-caps" href="#home">HOME</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-container transition-colors duration-300" href="#about">ABOUT</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-container transition-colors duration-300" href="#projects">PROJECTS</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-container transition-colors duration-300" href="#contact">CONTACT</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-caps text-label-caps bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-bold active:scale-95 transition-transform">HIRE_ME</button>
+</div>
+</nav>
+</header>
+<main class="relative z-10 pt-20">
+<!-- Hero Section -->
+<section class="min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-stack-lg radial-gradient-bg" id="home">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="order-2 lg:order-1 space-y-stack-md">
+<div class="inline-block px-4 py-1 rounded-full border border-primary-container/30 bg-primary-container/5 text-primary-container font-code-sm text-code-sm mb-stack-sm">
+                        SYSTEM_ARCHITECT.EXE
+                    </div>
+<h1 class="font-display-xl text-display-xl md:text-[84px] text-white tracking-tight leading-tight">
+                        Sonam <span class="text-primary-container">Malviya</span>
+</h1>
+<p class="font-headline-lg text-headline-lg text-on-surface-variant max-w-xl">
+                        BCA Student &amp; <span class="text-secondary">Programmer</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant/80 max-w-lg leading-relaxed">
+                        Passionate about software development, programming, and database management. Building real-world projects using Python, SQL, C#, and modern technologies.
+                    </p>
+<div class="flex flex-wrap gap-stack-md pt-stack-sm">
+<a class="px-8 py-3 bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-container font-bold rounded-xl shadow-[0_0_30px_rgba(0,224,255,0.3)] hover:shadow-[0_0_50px_rgba(0,224,255,0.5)] transition-all duration-500 font-label-caps" href="#projects">VIEW PROJECTS</a>
+<a class="px-8 py-3 border border-primary-container text-primary-container font-bold rounded-xl hover:bg-primary-container/10 transition-all font-label-caps" href="#contact">CONTACT ME</a>
+</div>
+</div>
+<div class="order-1 lg:order-2 flex justify-center items-center">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary-container/20 rounded-full blur-[60px] group-hover:bg-primary-container/40 transition-all duration-700"></div>
+<div class="relative floating p-2 border-2 border-primary-container/50 rounded-full shadow-[0_0_40px_rgba(0,224,255,0.2)]">
+<img alt="Sonam Malviya" class="w-64 h-64 md:w-96 md:h-96 object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-700 border-4 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida/ADBb0ugB6MS_TWGjvjrus0wW_O10cjaGnmFjU1616KSKPRCg1OaWU2SHtu5AuPUBE8sS01f1oXKavuG3krEmZi6Bu4Mn3Gm33dV9H-DWzERRYZOzFWLVKsSYS_hLRNQrxNXdeWevrOAQPjZAzi8Ppo0oJcPUxzx76RY2HsVX1Fl-pV2bvDD0V_nyWU4wl3YNl4qzcRqn0nPfMcnKdqWNQ2H3VoxpHul1-jAWneV9bBhjyWdusFdJs_rtqeU96Mh-zsJMoiVKzhHggzy9"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="about">
+<div class="glass-card rounded-[2rem] p-10 md:p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 text-primary-container/10 font-display-xl text-[120px] select-none">INFO</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-stack-lg items-start">
+<div class="md:col-span-1 md:border-r border-outline-variant/30 md:pr-stack-lg mb-8 md:mb-0">
+<h2 class="font-headline-lg text-[34px] md:text-headline-lg whitespace-nowrap overflow-hidden text-ellipsis text-primary-fixed-dim mb-4 md:mb-stack-sm">ABOUT_ME</h2>
+<div class="h-1 w-12 bg-primary-container rounded-full hidden md:block"></div>
+</div>
+<div class="md:col-span-2 space-y-stack-md">
+<p class="font-body-md text-[20px] text-on-surface leading-relaxed">
+                            I am currently pursuing BCA from Makhanlal Chaturvedi University, Bhopal (2023–2026). I am passionate about programming and software development. 
+                        </p>
+<p class="font-body-md text-on-surface-variant/80 leading-relaxed">
+                            I enjoy creating management systems, dashboards, and database-driven applications using Python, SQL, C#, and related technologies. My focus is on writing clean, efficient code and architecting robust database schemas that power modern user experiences.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-12 md:mb-stack-lg">
+<h2 class="font-headline-lg text-[34px] md:text-headline-lg whitespace-nowrap overflow-hidden text-ellipsis text-white mb-2">CORE_COMPETENCIES</h2>
+<p class="font-code-sm text-code-sm text-primary-container tracking-widest uppercase mt-4 md:mt-0">TECHNICAL_STACK</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Skill Card 1 -->
+<div class="glass-card p-6 rounded-2xl neon-border-hover transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container bg-primary-container/10 p-3 rounded-xl">terminal</span>
+<span class="font-code-sm text-code-sm text-outline">90%</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-white mb-4">PYTHON</h3>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[90%] shadow-[0_0_10px_#00e0ff]"></div>
+</div>
+</div>
+<!-- Skill Card 2 -->
+<div class="glass-card p-6 rounded-2xl neon-border-hover transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container bg-primary-container/10 p-3 rounded-xl">database</span>
+<span class="font-code-sm text-code-sm text-outline">85%</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-white mb-4">SQL</h3>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[85%] shadow-[0_0_10px_#00e0ff]"></div>
+</div>
+</div>
+<!-- Skill Card 3 -->
+<div class="glass-card p-6 rounded-2xl neon-border-hover transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container bg-primary-container/10 p-3 rounded-xl">code</span>
+<span class="font-code-sm text-code-sm text-outline">80%</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-white mb-4">C# / C</h3>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[80%] shadow-[0_0_10px_#00e0ff]"></div>
+</div>
+</div>
+<!-- Skill Card 4 -->
+<div class="glass-card p-6 rounded-2xl neon-border-hover transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container bg-primary-container/10 p-3 rounded-xl">web</span>
+<span class="font-code-sm text-code-sm text-outline">75%</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-white mb-4">HTML / CSS</h3>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[75%] shadow-[0_0_10px_#00e0ff]"></div>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex flex-wrap justify-center gap-unit">
+<span class="px-4 py-1 glass-card rounded-full text-label-caps text-[10px] text-on-surface-variant border-primary-container/20">FASTAPI</span>
+<span class="px-4 py-1 glass-card rounded-full text-label-caps text-[10px] text-on-surface-variant border-primary-container/20">MS ACCESS</span>
+<span class="px-4 py-1 glass-card rounded-full text-label-caps text-[10px] text-on-surface-variant border-primary-container/20">GIT</span>
+<span class="px-4 py-1 glass-card rounded-full text-label-caps text-[10px] text-on-surface-variant border-primary-container/20">LINUX</span>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="projects">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-stack-lg gap-4 md:gap-stack-md w-full">
+<div class="w-full overflow-hidden">
+<h2 class="font-headline-lg text-[34px] md:text-headline-lg whitespace-nowrap overflow-hidden text-ellipsis text-white">FEATURED_PROJECTS</h2>
+<p class="text-on-surface-variant font-body-md mt-2 md:mt-0">Selected engineering works and management systems.</p>
+</div>
+<div class="font-code-sm text-code-sm text-outline-variant shrink-0">Total_Items: 03</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Project 1 (Large Card) -->
+<div class="md:col-span-7 glass-card rounded-3xl overflow-hidden group">
+<div class="relative h-64 md:h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="A high-tech, futuristic shoe store display featuring sneakers floating within a glowing cyan glass case. The background is a dark, cyber-noir retail environment with neon blue light strips and digital sales analytics projected on the walls. The aesthetic is ultra-modern, clean, and technologically advanced, echoing the developer's core theme of management systems." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mg_7AHvcDCSLDpifxEIh9hMmojy2TkN6gZGqIssAO6v6TYCbENlIxUpj9GEHXvtqR-hNRA2tVWJTlJYr-7RvAWvA1An8O3k_7jF6I4XITm8uF0kfKAnbXHFNoH3kbatPF9ty_2sEX28oPB1wWY1Ma70dtvCF_k_H340rNZeiF33tLvCZwYr_6x1_x1qdJCodRHqphscCD7SVbMNZBRr9hNwDW_ipywNJWvwN0-TYInQzMXV2fAVZ0a8xmRGGcO2-pooAwLAkGCY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex gap-stack-sm">
+<span class="px-3 py-1 bg-primary-container/20 backdrop-blur-md rounded-lg text-label-caps text-[10px] text-primary-container border border-primary-container/30">C#</span>
+<span class="px-3 py-1 bg-primary-container/20 backdrop-blur-md rounded-lg text-label-caps text-[10px] text-primary-container border border-primary-container/30">SQL</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-lg text-2xl text-white mb-4">Shoe Store Management System</h3>
+<p class="text-on-surface-variant mb-6">A robust desktop-based management system designed for inventory control, transaction processing, and automated reporting for footwear retail units.</p>
+<button class="flex items-center gap-2 text-primary-container font-label-caps text-label-caps group-hover:gap-4 transition-all">
+                            EXPLORE_PROJECT <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project 2 (Right Col) -->
+<div class="md:col-span-5 glass-card rounded-3xl overflow-hidden group">
+<div class="relative h-48 md:h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="A cinematic shot of a futuristic cafe interior at night. Sleek black marble counters are illuminated by recessed neon purple lights. Floating digital menus hover over coffee machines. The mood is moody, sophisticated, and urban cyber-noir, reflecting the high-end developer persona and the system-driven nature of the cafe management application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsSifRW_R_ubXEzDS5EXKbKfILDaiDsvCy-CdQE0eHV2JneRVA1nbTmowyJ6v0O6pwtSGwv0ndeOCcmPikPbNq0cAnYTGEyuQ355PCUFCBJlfAMEhNcoY7wCIn9bXjY4lKHWovCflOxchj2kljtmCKX7DsVF8uMX26mzybeusORyjGwSQ6ArfcTI45Ma8VMAyNltyuP9g44Rn2k5kBn6BRymJkuB7GzZu4eENnp968dR-QSVUOQyIUgwG1RsNWKfn4paa1wWvEkvQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8">
+<div class="flex gap-stack-sm mb-4">
+<span class="px-3 py-1 bg-secondary/20 backdrop-blur-md rounded-lg text-label-caps text-[10px] text-secondary border border-secondary/30">PYTHON</span>
+</div>
+<h3 class="font-headline-lg text-xl text-white mb-3">Cafe Management System</h3>
+<p class="text-on-surface-variant text-sm mb-6">End-to-end cafe operations tool featuring digital menu management, order tracking, and real-time billing integration.</p>
+<button class="flex items-center gap-2 text-secondary font-label-caps text-label-caps">VIEW_SOURCE</button>
+</div>
+</div>
+<!-- Project 3 (Bottom Row) -->
+<div class="md:col-span-12 glass-card rounded-3xl p-8 flex flex-col md:flex-row gap-gutter items-center group">
+<div class="w-full md:w-1/3 h-48 overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all" data-alt="A high-fidelity administrative dashboard interface displayed on a premium widescreen monitor. The UI features complex data visualizations, glowing line graphs in cyan, and dark mode grid layouts for customer analytics. The overall scene is set in a dark minimalist home office with subtle ambient blue lighting, emphasizing the professional quality of the Python-based admin dashboard project." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRSB3sG79AV_T6k_MJSKDAEEz0sPANm7dEbL_l7BJeE78mlwts2TuUQ_4TTCq4m-mG6NxXCbkGzXpD8oO0u-RU9XdmCv0dmu4RYZUR186bhdb9-6AadxZl6VOE5vHw8tmjMcGjr05HJ4DwyH5xPm-I5O3V75weg069b8lqd-sLfih3ma0D73UO_6SbClGP8RzvXyYNIxNPsVgILtilJYd_qr0wRnAyHSvIpro03BrKo6QEzRErq3eCPQ1LY4tqu2uokzdiHbUxPS4"/>
+</div>
+<div class="flex-1">
+<div class="flex gap-stack-sm mb-4">
+<span class="px-3 py-1 bg-tertiary-container/20 backdrop-blur-md rounded-lg text-label-caps text-[10px] text-tertiary-container border border-tertiary-container/30">DASHBOARD</span>
+</div>
+<h3 class="font-headline-lg text-2xl text-white mb-3">E-commerce Admin Dashboard</h3>
+<p class="text-on-surface-variant max-w-2xl mb-4">Comprehensive analytics platform for sales monitoring, user demographics tracking, and inventory lifecycle management built with Python and FastAPI backend.</p>
+<div class="flex gap-stack-md">
+<span class="text-outline-variant font-code-sm text-code-sm">#Python</span>
+<span class="text-outline-variant font-code-sm text-code-sm">#FastAPI</span>
+<span class="text-outline-variant font-code-sm text-code-sm">#PostgreSQL</span>
+</div>
+</div>
+<div class="shrink-0">
+<div class="w-16 h-16 rounded-full border border-primary-container/30 flex items-center justify-center hover:bg-primary-container/10 transition-all cursor-pointer mt-4 md:mt-0">
+<span class="material-symbols-outlined text-primary-container">open_in_new</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<h2 class="font-headline-lg text-[34px] md:text-headline-lg whitespace-nowrap overflow-hidden text-ellipsis text-white text-center mb-12 md:mb-stack-lg">ACADEMIC_TIMELINE</h2>
+<div class="relative max-w-2xl mx-auto">
+<!-- Vertical Line -->
+<div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary-container via-outline-variant/30 to-transparent transform -translate-x-1/2"></div>
+<div class="relative z-10 flex flex-col items-center gap-12">
+<div class="glass-card p-8 rounded-3xl w-full text-center relative hover:shadow-[0_0_30px_rgba(186,242,255,0.1)] transition-all">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-primary-container rounded-full shadow-[0_0_15px_#00e0ff]"></div>
+<div class="font-code-sm text-primary-container text-label-caps mb-2">2023 – 2026</div>
+<h3 class="font-headline-lg text-xl text-white mb-1">Bachelor of Computer Applications</h3>
+<p class="text-on-surface-variant">Makhanlal Chaturvedi University, Bhopal</p>
+<div class="mt-4 pt-4 border-t border-outline-variant/20">
+<p class="font-body-md text-sm text-on-surface-variant/70 italic">Focusing on Object-Oriented Programming, Database Management Systems, and Software Engineering Principles.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-20" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-stack-lg">
+<div class="space-y-8 md:space-y-stack-md">
+<h2 class="font-headline-lg text-[34px] md:text-display-xl whitespace-nowrap overflow-hidden text-ellipsis text-white tracking-tighter">GET_IN_TOUCH</h2>
+<p class="text-on-surface-variant text-lg">Have a project in mind or want to collaborate? My inbox is always open.</p>
+<div class="space-y-stack-sm pt-4 md:pt-stack-sm">
+<div class="flex items-center gap-stack-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-container">alternate_email</span>
+<span>hello@sonam.dev</span>
+</div>
+<div class="flex items-center gap-stack-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+<span>Bhopal, India</span>
+</div>
+</div>
+<div class="flex gap-stack-md pt-4 md:pt-stack-md">
+<a class="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a class="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+</div>
+</div>
+<div class="glass-card p-10 rounded-3xl shadow-xl">
+<form class="space-y-stack-md">
+<div class="space-y-stack-sm">
+<label class="font-label-caps text-label-caps text-outline">EMAIL_ADDRESS</label>
+<input class="w-full bg-[#0A0C10] border-0 border-b-2 border-outline-variant/30 focus:border-primary-container focus:ring-0 text-white placeholder:text-outline/40 transition-all py-3 px-0 font-code-sm" placeholder="dev@example.com" type="email"/>
+</div>
+<div class="space-y-stack-sm">
+<label class="font-label-caps text-label-caps text-outline">TRANSMISSION_DATA</label>
+<textarea class="w-full bg-[#0A0C10] border-0 border-b-2 border-outline-variant/30 focus:border-primary-container focus:ring-0 text-white placeholder:text-outline/40 transition-all py-3 px-0 font-code-sm" placeholder="Describe your vision..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(0,224,255,0.2)] hover:shadow-[0_0_40px_rgba(0,224,255,0.4)] transition-all font-label-caps tracking-widest mt-stack-md" type="submit">
+                            SEND_MESSAGE.REQUEST
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/30 py-stack-md pb-24 md:pb-stack-md">
+<div class="flex flex-col md:flex-row justify-between items-center gap-unit max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="font-label-caps text-primary-container">SONAM_MALVIYA</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">© 2024 SONAM_MALVIYA // SYSTEMS_ARCHITECT</div>
+<div class="flex gap-stack-lg">
+<a class="text-on-surface-variant font-label-caps hover:text-primary-container hover:glow-sm transition-all hover:translate-y-[-2px]" href="#">GITHUB</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-container hover:glow-sm transition-all hover:translate-y-[-2px]" href="#">LINKEDIN</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-container hover:glow-sm transition-all hover:translate-y-[-2px]" href="#">SOURCE_CODE</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface-dim/80 backdrop-blur-lg border-t border-white/5 flex justify-around items-center h-16 px-4 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary-container rounded-xl p-2 shadow-[0_0_15px_rgba(0,224,255,0.3)] scale-90 duration-200" href="#home">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline p-2 hover:text-primary transition-all" href="#projects">
+<span class="material-symbols-outlined">code</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline p-2 hover:text-primary transition-all" href="#about">
+<span class="material-symbols-outlined">person</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline p-2 hover:text-primary transition-all" href="#contact">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</nav>
+</body></html>
